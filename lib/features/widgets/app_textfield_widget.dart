@@ -124,7 +124,7 @@ class _AppTextFieldState extends State<AppTextField> {
         hintStyle: TextStyle(
           color: ColorManager.grayColor
         ),
-        prefixIcon: Icon(widget.iconData),
+        prefixIcon: widget.iconData == null?null:Icon(widget.iconData),
         errorMaxLines: 2,
         suffixIcon: widget.suffixIcon
             ? IconButton(

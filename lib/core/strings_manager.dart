@@ -13,6 +13,7 @@ class StringsManager {
   static const String privacyPolicyText = "Privacy Policy";
   static const String termsOfUseText = "Terms of Use";
   static const String copyRightText = "© 2024 Leaf Net. All rights reserved.";
+  static const String aboutUsText = "About Us";
   static const String userNameText = "Username : ";
   static const String passwordText = "Password : ";
   static const String forgetPasswordText = "Forgot Password?";
@@ -21,6 +22,27 @@ class StringsManager {
   static const String alreadyHaveAccountText = "Already have account? ";
   static const String signUpText = "Sign up";
   static const String emailText = "Email :";
-  static const String receivePasswordResetLinkText = "Enter your email to receive a password reset link";
+  static const String receivePasswordResetLinkText =
+      "Enter your email to receive a password reset link";
   static const String submitText = "Submit";
+  static const String homeScreenWelcomeText = """
+  🌱 Welcome to LeafNet! 🌱
+LeafNet is here to support your plant journey. Identify new plants and diagnose their health with ease. Check out our features to discover the best ways to care for your plants!
+  """;
+  static const String exploreFeaturesText = 'Explore Features';
+  static const String askExpertText = 'Ask Expert';
+  static const String diagnosePlantText = 'Diagnose Plant';
+  static const String identifyPlantText = 'Identify Plant';
+
+  static const String identifyScreenText = """
+  Snap a photo and let LeafNet do the rest! Try it out now to discover your plant’s name in seconds!
+  """;
+  static const String diagnoseScreenText = """
+Snap a picture of your plant and let LeafNet diagnose its health! See what your plant needs—it's quick and easy! Give it a go!
+ """;
+  static const String resultHintText = 'result will appear here ....';
+  static const String resultText = 'Result:';
+  static const String diagnoseNameText = 'Diagnose Name:';
+  static const String selectImageText = 'Select an image or use the camera to identify the plant';
+  static const String uploadImageText = 'Upload Image';
 }

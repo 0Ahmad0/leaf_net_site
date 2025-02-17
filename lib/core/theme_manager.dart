@@ -19,7 +19,8 @@ class ThemeManager {
       style: ButtonStyle(
         textStyle: WidgetStatePropertyAll(
           TextStyle(
-              color: ColorManager.blackColor, fontFamily: _font.fontFamily),
+              color: ColorManager.blackColor,
+              fontFamily: _font.fontFamily),
         ),
       ),
     ),

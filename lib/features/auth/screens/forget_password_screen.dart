@@ -48,7 +48,9 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
                     Text(
                       StringsManager.resetPasswordText,
                       style: TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 50.sp),
+                        fontWeight: FontWeight.w900, fontSize: 50.sp,
+                        color: ColorManager.primaryColor
+                      ),
                     ),
                     10.h.height,
                     Text(

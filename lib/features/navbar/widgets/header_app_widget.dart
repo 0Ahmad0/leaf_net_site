@@ -1,17 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:leaf_net_app/core/const_manager.dart';
 import 'package:leaf_net_app/core/extension/space_ext.dart';
-import 'package:leaf_net_app/features/widgets/app_padding_widget.dart';
-import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
 
 import '../../../core/assets_manager.dart';
 import '../../../core/color_manager.dart';
+import '../../../core/const_manager.dart';
 import '../../../core/strings_manager.dart';
+import '../../widgets/app_padding_widget.dart';
+import '../../widgets/app_textfield_widget.dart';
 
-class AppBarWidget extends StatelessWidget {
-  const AppBarWidget({super.key});
+class HeaderAppWidget extends StatelessWidget {
+  const HeaderAppWidget({
+    super.key,
+    required this.name,
+    required this.title,
+  });
+
+  final String name;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +47,22 @@ class AppBarWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      StringsManager.welcomeBackText,
+                      name,
                       style: TextStyle(fontWeight: FontWeight.w900),
                     ),
                     Text(
                       StringsManager.plantEnthusiastText,
                     ),
                   ],
-                )
+                ),
+                Expanded(child: SizedBox.shrink()),
+                Flexible(
+                    child: Text(
+                  title,
+                  style:
+                      TextStyle(fontWeight: FontWeight.bold, fontSize: 40.sp),
+                )),
+                Expanded(child: SizedBox.shrink()),
               ],
             ),
           )

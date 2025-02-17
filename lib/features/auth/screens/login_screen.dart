@@ -13,6 +13,7 @@ import 'package:leaf_net_app/features/auth/screens/forget_password_screen.dart';
 import 'package:leaf_net_app/features/auth/screens/signup_screen.dart';
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
 import 'package:leaf_net_app/features/auth/widgets/footer_widget.dart';
+import 'package:leaf_net_app/features/navbar/screens/navbar_screen.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
 import 'package:leaf_net_app/core/helper/validator/validator_helper.dart';
@@ -48,7 +49,9 @@ class LoginScreen extends GetView<LoginController> {
                     Text(
                       StringsManager.loginText,
                       style: TextStyle(
-                          fontWeight: FontWeight.w900, fontSize: 50.sp),
+                          fontWeight: FontWeight.w900,
+                          fontSize: 50.sp,
+                          color: ColorManager.primaryColor),
                     ),
                     Row(
                       children: [
@@ -97,7 +100,12 @@ class LoginScreen extends GetView<LoginController> {
                                         text: StringsManager.loginText,
                                         onPressed: () {
                                           if (controller.formKey.currentState!
-                                              .validate()) {}
+                                              .validate()) {
+                                            Get.to(
+                                              () => NavbarScreen(),
+                                              transition: Transition.topLevel
+                                            );
+                                          }
                                         },
                                       ),
                                     ),
@@ -116,10 +124,9 @@ class LoginScreen extends GetView<LoginController> {
                                           text: StringsManager.signUpText,
                                           recognizer: TapGestureRecognizer()
                                             ..onTap = () {
-                                              Get.off(
-                                                () => SignupScreen(),
-                                                transition: Transition.rightToLeft
-                                              );
+                                              Get.off(() => SignupScreen(),
+                                                  transition:
+                                                      Transition.rightToLeft);
                                             },
                                           style: TextStyle(
                                             color: ColorManager.primaryColor,

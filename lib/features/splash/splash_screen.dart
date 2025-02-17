@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -41,10 +42,12 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Column(
         children: [
           const Spacer(),
-          Image.asset(
-            AssetsManager.logoIMG,
-            width: 500.w,
-            height: 500.h,
+          FadeInDownBig(
+            child: Image.asset(
+              AssetsManager.logoIMG,
+              width: 500.w,
+              height: 500.h,
+            ),
           ),
           const Spacer(),
           SpinKitCircle(

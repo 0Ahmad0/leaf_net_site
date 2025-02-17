@@ -13,16 +13,21 @@ dependencies:
 
 
   cupertino_icons: ^1.0.8
-
+  # For Animations in App
   animate_do:
 
+  # For Fonts From Internet (No Local)
   google_fonts:
 
+  # for Loading Animations
   flutter_spinkit:
 
+  # State Management
   get:
 
-  flutter_screenutil:   
+  # For Responsive UI
+  flutter_screenutil:
+
 dev_dependencies:
   flutter_launcher_icons:
   flutter_test:

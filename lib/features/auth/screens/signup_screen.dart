@@ -36,7 +36,7 @@ class SignupScreen extends GetView<SignupController> {
                       child: Form(
                         key: controller.formKey,
                         child: AppPaddingWidget(
-                          width: 150.w,
+                          width: 122.w,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -125,10 +125,9 @@ class SignupScreen extends GetView<SignupController> {
                                         text: StringsManager.loginText,
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
-                                            Get.off(
-                                              () => LoginScreen(),
-                                                transition: Transition.downToUp
-                                            );
+                                            Get.off(() => LoginScreen(),
+                                                transition:
+                                                    Transition.downToUp);
                                           },
                                         style: TextStyle(
                                           color: ColorManager.primaryColor,
@@ -155,7 +154,9 @@ class SignupScreen extends GetView<SignupController> {
                         Text(
                           StringsManager.signUpText,
                           style: TextStyle(
-                              fontWeight: FontWeight.w900, fontSize: 50.sp),
+                              fontWeight: FontWeight.w900,
+                              fontSize: 50.sp,
+                              color: ColorManager.primaryColor),
                         ),
                       ],
                     ))
