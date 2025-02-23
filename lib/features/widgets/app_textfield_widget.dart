@@ -122,7 +122,7 @@ class _AppTextFieldState extends State<AppTextField> {
         hintText:  widget.hintText,
 
         hintStyle: TextStyle(
-          color: ColorManager.grayColor
+          color: ColorManager.blackColor.withOpacity(.25)
         ),
         prefixIcon: widget.iconData == null?null:Icon(widget.iconData),
         errorMaxLines: 2,

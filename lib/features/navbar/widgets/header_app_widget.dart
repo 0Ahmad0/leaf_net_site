@@ -33,6 +33,7 @@ class HeaderAppWidget extends StatelessWidget {
             decoration: BoxDecoration(color: ColorManager.underAppBarColor),
             child: Row(
               children: [
+                BackButton(),
                 CircleAvatar(
                   radius: 40.sp,
                   backgroundColor: ColorManager.grayColor,

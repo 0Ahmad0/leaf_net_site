@@ -45,4 +45,12 @@ Snap a picture of your plant and let LeafNet diagnose its health! See what your 
   static const String diagnoseNameText = 'Diagnose Name:';
   static const String selectImageText = 'Select an image or use the camera to identify the plant';
   static const String uploadImageText = 'Upload Image';
+  static const String chooseImageText = 'Choose Image';
+  static const String nameText = 'Name : ';
+  static const String saveText = 'Save Changes';
+  static const String logoutText = 'Logout';
+  static const String profileUpdateSuccessFullText = 'Profile Updated SuccessFull!!';
+  static const String pleaseSelectPhotoText = 'Please Select Photo';
+  static const String typeHereText = 'Write your message...';
+  static const String noMessagesYetText = '😯No Messages Yet😯';
 }

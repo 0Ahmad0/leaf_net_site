@@ -14,7 +14,8 @@ import '../../widgets/app_textfield_widget.dart';
 import '../widgets/footer_app_widget.dart';
 
 class NavbarScreen extends GetView<NavbarController> {
-  const NavbarScreen({super.key});
+  const NavbarScreen(this.index, {super.key});
+  final int? index;
 
   @override
   Widget build(BuildContext context) {

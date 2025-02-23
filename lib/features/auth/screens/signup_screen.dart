@@ -40,6 +40,19 @@ class SignupScreen extends GetView<SignupController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text(StringsManager.nameText),
+                              10.h.height,
+                              AppTextField(
+                                controller: controller.nameController,
+                                iconData: Icons.person_outline_sharp,
+                                hintText: StringsManager.nameText,
+                                validator: (value) {
+                                  return FieldValidator([
+                                    UsernameValidator(),
+                                  ]).validate(value ?? '');
+                                },
+                              ),
+                              40.h.height,
                               Text(StringsManager.userNameText),
                               10.h.height,
                               AppTextField(

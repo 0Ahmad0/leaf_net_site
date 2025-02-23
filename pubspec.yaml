@@ -28,6 +28,11 @@ dependencies:
   # For Responsive UI
   flutter_screenutil:
 
+  # Picker Images From Gallery Or Camera
+  image_picker:
+
+  # Format DateTime
+  intl:
 dev_dependencies:
   flutter_launcher_icons:
   flutter_test:

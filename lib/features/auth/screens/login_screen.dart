@@ -102,7 +102,7 @@ class LoginScreen extends GetView<LoginController> {
                                           if (controller.formKey.currentState!
                                               .validate()) {
                                             Get.to(
-                                              () => NavbarScreen(),
+                                              () => NavbarScreen(null),
                                               transition: Transition.topLevel
                                             );
                                           }

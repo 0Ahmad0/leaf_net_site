@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 class SignupController extends GetxController{
   final formKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
   final userNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -10,6 +11,7 @@ class SignupController extends GetxController{
 
   @override
   void onClose() {
+    nameController.dispose();
     userNameController.dispose();
     emailController.dispose();
     passwordController.dispose();
