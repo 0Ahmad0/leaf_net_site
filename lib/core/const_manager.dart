@@ -2,12 +2,7 @@ import 'package:leaf_net_app/core/assets_manager.dart';
 import 'package:leaf_net_app/core/models/home_model.dart';
 import 'package:leaf_net_app/core/models/navbar_model.dart';
 import 'package:leaf_net_app/core/strings_manager.dart';
-import 'package:leaf_net_app/features/navbar/screens/diagnose_screen.dart';
 import 'package:leaf_net_app/features/navbar/screens/home_screen.dart';
-import 'package:leaf_net_app/features/navbar/screens/home_screen.dart';
-import 'package:leaf_net_app/features/navbar/screens/home_screen.dart';
-import 'package:leaf_net_app/features/navbar/screens/home_screen.dart';
-import 'package:leaf_net_app/features/navbar/screens/identify_screen.dart';
 import 'package:leaf_net_app/features/navbar/screens/profile_screen.dart';
 
 class ConstManager {
@@ -18,17 +13,10 @@ class ConstManager {
 
   static List<NavbarModel> appBarPages = [
     NavbarModel(name: StringsManager.homeText, screen: HomeScreen()),
-    NavbarModel(name: StringsManager.identifyText, screen: IdentifyScreen()),
-    NavbarModel(name: StringsManager.diagnoseText, screen: DiagnoseScreen()),
     NavbarModel(name: StringsManager.profileText, screen: ProfileScreen()),
   ];
 
   static List<HomeModel> homeList = [
-    HomeModel(
-      name: StringsManager.identifyPlantText,
-      image: AssetsManager.identifyPlantIMG,
-      route: 'route',
-    ),
     HomeModel(
       name: StringsManager.diagnosePlantText,
       image:  AssetsManager.diagnosePlantIMG,

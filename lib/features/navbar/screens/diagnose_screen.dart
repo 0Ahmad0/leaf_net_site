@@ -8,10 +8,13 @@ import 'package:leaf_net_app/core/extension/space_ext.dart';
 import 'package:leaf_net_app/core/strings_manager.dart';
 import 'package:leaf_net_app/features/navbar/controllers/diagnose_controller.dart';
 
+import '../../../core/assets_manager.dart';
 import '../../../core/color_manager.dart';
+import '../../../core/const_manager.dart';
 import '../../widgets/app_button_widget.dart';
 import '../../widgets/app_padding_widget.dart';
 import '../../widgets/app_textfield_widget.dart';
+import '../widgets/header_app_widget.dart';
 import '../widgets/under_header_widget.dart';
 
 class DiagnoseScreen extends GetView<DiagnoseController> {
@@ -22,6 +25,12 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
     Get.lazyPut(() => DiagnoseController());
     return Column(
       children: [
+        HeaderAppWidget(
+          name: 'Sarah',
+          title:
+          StringsManager.diagnoseText+
+              ' Page',
+        ),
         40.h.height,
         UnderHeaderWidget(
           text: StringsManager.diagnoseScreenText,
