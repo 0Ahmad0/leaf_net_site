@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:leaf_net_app/features/app.dart';
 
 class AppPaddingWidget extends StatelessWidget {
   const AppPaddingWidget(

@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +13,6 @@ import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
 import 'package:leaf_net_app/features/navbar/screens/navbar_screen.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
-import 'package:leaf_net_app/core/helper/validator/validator_helper.dart';
 
 class LoginScreen extends GetView<LoginController> {
   @override

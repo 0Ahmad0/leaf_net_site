@@ -7,9 +7,7 @@ import 'package:leaf_net_app/core/const_manager.dart';
 import 'package:leaf_net_app/core/extension/space_ext.dart';
 import 'package:leaf_net_app/core/strings_manager.dart';
 import 'package:leaf_net_app/features/ask_expert/screens/ask_expert_screen.dart';
-import 'package:leaf_net_app/features/auth/screens/signup_screen.dart';
 import 'package:leaf_net_app/features/navbar/screens/diagnose_screen.dart';
-import 'package:leaf_net_app/features/navbar/screens/navbar_screen.dart';
 import 'package:leaf_net_app/features/widgets/app_padding_widget.dart';
 
 class HomeScreen extends StatelessWidget {

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:leaf_net_app/core/extension/space_ext.dart';
 import 'package:leaf_net_app/features/ask_expert/controllers/ask_expert_controller.dart';
 import 'package:leaf_net_app/features/ask_expert/widgets/bot_message_shape_widget.dart';
 import 'package:leaf_net_app/features/ask_expert/widgets/user_message_shape_widget.dart';
 import 'package:leaf_net_app/features/navbar/widgets/header_app_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
 
-import '../../../core/assets_manager.dart';
 import '../../../core/color_manager.dart';
 import '../../../core/strings_manager.dart';
 import '../../widgets/app_padding_widget.dart';

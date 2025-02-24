@@ -13,6 +13,7 @@ class ConstManager {
 
   static List<NavbarModel> appBarPages = [
     NavbarModel(name: StringsManager.homeText, screen: HomeScreen()),
+
     NavbarModel(name: StringsManager.profileText, screen: ProfileScreen()),
   ];
 

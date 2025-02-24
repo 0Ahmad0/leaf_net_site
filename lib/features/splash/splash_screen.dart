@@ -8,9 +8,6 @@ import 'package:get/get.dart';
 import 'package:leaf_net_app/core/assets_manager.dart';
 import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/const_manager.dart';
-import 'package:leaf_net_app/core/extension/space_ext.dart';
-import 'package:leaf_net_app/core/strings_manager.dart';
-import 'package:leaf_net_app/features/app.dart';
 import 'package:leaf_net_app/features/auth/screens/login_screen.dart';
 
 class SplashScreen extends StatefulWidget {

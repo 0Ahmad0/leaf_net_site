@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -9,12 +6,9 @@ import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/extension/space_ext.dart';
 import 'package:leaf_net_app/core/strings_manager.dart';
 import 'package:leaf_net_app/features/auth/controllers/forget_password_controller.dart';
-import 'package:leaf_net_app/features/auth/controllers/login_controller.dart';
-import 'package:leaf_net_app/features/auth/screens/signup_screen.dart';
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
-import 'package:leaf_net_app/core/helper/validator/validator_helper.dart';
 
 class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
   @override

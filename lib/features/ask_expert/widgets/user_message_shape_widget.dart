@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/extension/space_ext.dart';
-import 'package:intl/intl.dart';
 
 class UserMessageShapeWidget extends StatelessWidget {
   const UserMessageShapeWidget({super.key, required this.text});

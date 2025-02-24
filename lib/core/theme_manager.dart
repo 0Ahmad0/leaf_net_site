@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/extension/material_color_ext.dart';
-import 'package:leaf_net_app/features/app.dart';
 
 class ThemeManager {
   static final _font = GoogleFonts.josefinSans();

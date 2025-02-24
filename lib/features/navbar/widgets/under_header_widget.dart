@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:leaf_net_app/core/assets_manager.dart';
-import 'package:leaf_net_app/core/strings_manager.dart';
-import 'package:leaf_net_app/core/theme_manager.dart';
 
 import '../../../core/color_manager.dart';
 import '../../widgets/app_padding_widget.dart';

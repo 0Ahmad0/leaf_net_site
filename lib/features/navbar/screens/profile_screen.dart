@@ -15,7 +15,6 @@ import 'package:leaf_net_app/features/widgets/app_padding_widget.dart';
 import '../../../core/helper/validator/validator_helper.dart';
 import '../../../core/strings_manager.dart';
 import '../../widgets/app_textfield_widget.dart';
-import '../widgets/under_header_widget.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
   const ProfileScreen({super.key});
