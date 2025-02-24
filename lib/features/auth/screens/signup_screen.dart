@@ -12,7 +12,6 @@ import 'package:leaf_net_app/features/auth/controllers/login_controller.dart';
 import 'package:leaf_net_app/features/auth/controllers/signup_controller.dart';
 import 'package:leaf_net_app/features/auth/screens/login_screen.dart';
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
-import 'package:leaf_net_app/features/auth/widgets/footer_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_padding_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
@@ -175,7 +174,6 @@ class SignupScreen extends GetView<SignupController> {
                     ))
                   ],
                 ),
-                FooterWidget()
               ],
             ),
           ],

@@ -59,7 +59,10 @@ class HomeScreen extends StatelessWidget {
             InkWell(
               borderRadius: BorderRadius.circular(100.r),
               onTap: () => Get.to(
-                    () => NavbarScreen(0),
+                    () => Scaffold(
+                        appBar: AppBar(),
+                      body: IdentifyScreen()
+                    ),
                 transition: Transition.leftToRightWithFade
               ),
               child: Column(
@@ -86,7 +89,10 @@ class HomeScreen extends StatelessWidget {
             InkWell(
               borderRadius: BorderRadius.circular(100.r),
               onTap: () => Get.to(
-                    () => NavbarScreen(1),
+                    () => Scaffold(
+                      appBar: AppBar(),
+                        body: DiagnoseScreen()
+                    ),
                   transition: Transition.rightToLeftWithFade
               ),
               child: Column(

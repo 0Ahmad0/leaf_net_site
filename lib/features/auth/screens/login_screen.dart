@@ -12,7 +12,6 @@ import 'package:leaf_net_app/features/auth/controllers/login_controller.dart';
 import 'package:leaf_net_app/features/auth/screens/forget_password_screen.dart';
 import 'package:leaf_net_app/features/auth/screens/signup_screen.dart';
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
-import 'package:leaf_net_app/features/auth/widgets/footer_widget.dart';
 import 'package:leaf_net_app/features/navbar/screens/navbar_screen.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
@@ -101,8 +100,8 @@ class LoginScreen extends GetView<LoginController> {
                                         onPressed: () {
                                           if (controller.formKey.currentState!
                                               .validate()) {
-                                            Get.to(
-                                              () => NavbarScreen(null),
+                                            Get.offAll(
+                                              () => NavbarScreen(),
                                               transition: Transition.topLevel
                                             );
                                           }
@@ -146,7 +145,6 @@ class LoginScreen extends GetView<LoginController> {
                         ),
                       ],
                     ),
-                    FooterWidget()
                   ],
                 ),
               ],

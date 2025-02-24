@@ -12,7 +12,6 @@ import 'package:leaf_net_app/features/auth/controllers/forget_password_controlle
 import 'package:leaf_net_app/features/auth/controllers/login_controller.dart';
 import 'package:leaf_net_app/features/auth/screens/signup_screen.dart';
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
-import 'package:leaf_net_app/features/auth/widgets/footer_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
 import 'package:leaf_net_app/core/helper/validator/validator_helper.dart';
@@ -91,7 +90,6 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
                         ),
                       ],
                     ),
-                    FooterWidget()
                   ],
                 ),
               ],

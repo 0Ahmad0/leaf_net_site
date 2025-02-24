@@ -11,11 +11,9 @@ import '../../../core/const_manager.dart';
 import '../../../core/strings_manager.dart';
 import '../../widgets/app_padding_widget.dart';
 import '../../widgets/app_textfield_widget.dart';
-import '../widgets/footer_app_widget.dart';
 
 class NavbarScreen extends GetView<NavbarController> {
-  const NavbarScreen(this.index, {super.key});
-  final int? index;
+  const NavbarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +97,6 @@ class NavbarScreen extends GetView<NavbarController> {
           SliverToBoxAdapter(
             child: 40.h.height,
           ),
-          SliverToBoxAdapter(child: FooterAppWidget())
         ],
       ),
     );
