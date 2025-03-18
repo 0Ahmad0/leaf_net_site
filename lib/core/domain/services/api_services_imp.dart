@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../core/utils/app_url.dart';
 import '../../data/datasource/storage/app_storage.dart';
 import 'api_service.dart';
@@ -29,7 +29,7 @@ class ApiServicesImp implements ApiServices {
       "Accept": "application/json",
       "accept-timezone":DateTime.now().timeZoneName,
       "Authorization":
-          hasToken ? "Bearer ${( AppStorage.instance.readData(AppStorage.TOKEN))}" : null,
+          hasToken ? "Token ${( AppStorage.instance.readData(AppStorage.TOKEN))}" : null,
       // "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhaG1hZDEiLCJleHAiOjE2NzE4Nzc2MTMsImlhdCI6MTY3MTUxNzYxM30.ipa9KNJP2QhloBMtC0g0P0lwfGZlhGw9aWXQTC02G74":null,
 
     };
@@ -72,6 +72,34 @@ class ApiServicesImp implements ApiServices {
     }
   }
 
+  @override
+  Future reqHttp(BuildContext? context, String path,
+      {Map<String, dynamic>? queryParams,
+        Map<String, String> body = const {},
+        String typeRequest = "POST",
+        String? key,
+        List<http.MultipartFile> multipartFile = const [],
+        bool? hasToken}) async {
+    try {
+      await setHeaders(hasToken ?? true);
+      var headers = {"Accept": "application/json"};
+      if (hasToken ?? true) {
+        // String token = await "Bearer ${(await AppStorage.getAdvance())?.token}";
+        // headers['Authorization'] = token;
+      }
+      final mRequest = http.MultipartRequest(typeRequest, Uri.parse(path))
+        ..files.addAll(multipartFile)
+        ..fields.addAll(body)
+        ..headers.addAll(headers);
+
+      final response = await mRequest.send().timeout(Duration(minutes: 1));
+      return jsonDecode(await response.stream.transform(utf8.decoder).first);
+    } catch (error) {
+      print(error);
+      //BlocProvider.of<UploadManagerCubit>(context).failureUploadFile(key:key);
+      rethrow;
+    }
+  }
   @override
   Future post(String path,
       {Map<String, dynamic>? queryParams,

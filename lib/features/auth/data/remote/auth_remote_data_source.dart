@@ -22,13 +22,21 @@ class AuthRemoteDataSource  {
 
   Future<BaseModel> login(String email, String password) async {
 
+
     final response = await _apiServices.post(
         AppUrl.login,
         body: {
-          "email": email,
+          "username": email,
           "password": password,
         },
         hasToken: false);
+    // final response = await _apiServices.reqHttp(null,
+    //     AppUrl.login,
+    //     body: {
+    //       "email": email,
+    //       "password": password,
+    //     },
+    //     hasToken: false);
 
     // final response={
     //   "user": {

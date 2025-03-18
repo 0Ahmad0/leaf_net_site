@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-
+import 'package:http/http.dart' as http;
 abstract class ApiServices {
   Future<dynamic> get(String path,
       {Map<String, dynamic>? queryParams, bool? hasToken});
@@ -21,6 +21,13 @@ abstract class ApiServices {
         String? key,
         bool? hasToken,
       });
+
+  Future reqHttp(BuildContext? context,String path,
+      {Map<String, dynamic>? queryParams,
+        Map<String, String> body=const {},
+        String typeRequest="POST",
+        String? key,
+        List<http.MultipartFile> multipartFile=const[],bool? hasToken});
 
   Future postList(
       String path, {

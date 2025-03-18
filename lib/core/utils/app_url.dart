@@ -16,15 +16,15 @@ class AppUrl {
   ///<------------------------------------------------------------------------------
   // static final getUser = "${baseUrl}";
   static const login = "${baseUrl}${auth}login/";
-  static const register = "${baseUrl}${auth}register";
+  static const register = "${baseUrl}${auth}register/";
   static const logout = "${baseUrl}${auth}logout/";
   static const getProfile = '${baseUrl}${auth}me/';
   static const updateCurrentUserProfile = '${baseUrl}${auth}me/';
 
-  static const requestResetPasswordWithToken = '${baseUrl}${auth}password-reset-with-token';
-  static const verifyOtp = '${baseUrl}${auth}otp-verify';
-  static const requestResetPassword = '${baseUrl}${auth}password-reset-otp-request';
-  static const verifyEmail = '${baseUrl}${auth}verify-email';
+  static const requestResetPasswordWithToken = '${baseUrl}${auth}password-reset-with-token/';
+  static const verifyOtp = '${baseUrl}${auth}otp-verify/';
+  static const requestResetPassword = '${baseUrl}${auth}password-reset-otp-request/';
+  static const verifyEmail = '${baseUrl}${auth}verify-email/';
 
 
   static const diagnoseUrl = '${baseUrl}${diagnose}';
