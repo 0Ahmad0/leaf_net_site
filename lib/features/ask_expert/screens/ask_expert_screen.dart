@@ -30,14 +30,22 @@ class AskExpertScreen extends GetView<AskExpertController> {
                     return SizedBox(
                       width: Get.width / 2.25,
                       child: controller.messages.isNotEmpty?ListView.builder(
+                        controller: controller.scrollController,
                         padding: EdgeInsets.all(10.0),
                         itemCount: controller.messages.length,
-                        itemBuilder: (context, index) => index.isEven
+                        itemBuilder: (context, index) =>
+
+                        // index.isEven
+                        controller.messages[index]['isUser'] as bool
                             ? UserMessageShapeWidget(
-                                text: controller.messages[index],
+                                text: controller.messages[index]['message'],
+                          time: controller.messages[index]['timestamp'],
+                                // text: controller.messages[index],
                               )
                             : BotMessageShapeWidget(
-                                text: controller.messages[index]),
+                          time: controller.messages[index]['timestamp'],
+                            isWrong: controller.messages[index]['isWrong']==true,
+                                text: controller.messages[index]['message']),
                       ):Center(
                         child: Text(StringsManager.noMessagesYetText),
                       ),

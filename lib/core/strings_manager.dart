@@ -53,4 +53,17 @@ Snap a picture of your plant and let LeafNet diagnose its health! See what your 
   static const String pleaseSelectPhotoText = 'Please Select Photo';
   static const String typeHereText = 'Write your message...';
   static const String noMessagesYetText = '😯No Messages Yet😯';
+  static const String noDataFoundText = 'No Data Yet!';
+  static const String retryText = 'Retry';
+
+  static const String otpVerificationText = "OTP Verification";
+  static const String enterOtpText = "Enter the 6-digit code sent to your email";
+  static const String verifyOtpText = "Verify OTP";
+  static const String invalidOtpText = "Invalid OTP. Please try again.";
+  static const String otpExpiredText = "OTP has expired. Request a new one.";
+
+  static const String enterNewPasswordText = "Enter your new password";
+  static const String newPasswordText = "New Password";
+  static const String confirmPasswordText = "Confirm Password";
+
 }

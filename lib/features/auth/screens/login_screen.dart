@@ -97,10 +97,11 @@ class LoginScreen extends GetView<LoginController> {
                                         onPressed: () {
                                           if (controller.formKey.currentState!
                                               .validate()) {
-                                            Get.offAll(
-                                              () => NavbarScreen(),
-                                              transition: Transition.topLevel
-                                            );
+                                            controller.login(context);
+                                            // Get.offAll(
+                                            //   () => NavbarScreen(),
+                                            //   transition: Transition.topLevel
+                                            // );
                                           }
                                         },
                                       ),

@@ -5,10 +5,11 @@ import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/extension/space_ext.dart';
 
 class UserMessageShapeWidget extends StatelessWidget {
-  const UserMessageShapeWidget({super.key, required this.text});
+  const UserMessageShapeWidget({super.key, required this.text, this.time});
 
   final String text;
 
+  final DateTime? time;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -35,7 +36,7 @@ class UserMessageShapeWidget extends StatelessWidget {
           20.h.height,
           Text(
             DateFormat().add_jm().format(
-                  DateTime.now(),
+              time??DateTime.now(),
                 ),
             style: TextStyle(
               fontSize: 12.sp,

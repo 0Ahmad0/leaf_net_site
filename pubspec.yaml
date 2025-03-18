@@ -5,7 +5,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.5.0-203.0.dev
+#  sdk: ^3.5.3
 
 dependencies:
   flutter:
@@ -33,10 +34,36 @@ dependencies:
 
   # Format DateTime
   intl:
+
+  # A package for simple, fast, and persistent storage for small data, such as user preferences.
+  get_storage: ^2.1.1
+  dio: ^5.8.0+1
+  get_it: ^8.0.3
+  cached_network_image: ^3.4.1
+  google_generative_ai: ^0.4.6
+  flutter_markdown: ^0.7.6+2
+
 dev_dependencies:
   flutter_launcher_icons:
   flutter_test:
     sdk: flutter
+
+  ## tools
+  # A build system for Dart, enabling code generation and more.
+  build_runner: ^2.3.3
+
+  # A code generator for JSON serialization and deserialization in Dart.
+  json_serializable: ^6.6.1
+
+  # Annotations for the 'json_serializable' code generator, defining how JSON should be handled.
+  json_annotation: ^4.8.0
+
+  # A code generator that provides utilities for creating immutable classes, union types, and sealed classes.
+  freezed: ^2.1.0
+
+  # Annotations for the 'freezed' code generator, specifying how the generated code should behave.
+  freezed_annotation: ^2.1.0
+
 flutter_launcher_icons:
   web:
     generate: true

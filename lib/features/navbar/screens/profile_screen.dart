@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -14,6 +15,7 @@ import 'package:leaf_net_app/features/widgets/app_padding_widget.dart';
 
 import '../../../core/helper/validator/validator_helper.dart';
 import '../../../core/strings_manager.dart';
+import '../../auth/controllers/login_controller.dart';
 import '../../widgets/app_textfield_widget.dart';
 
 class ProfileScreen extends GetView<ProfileController> {
@@ -61,10 +63,12 @@ class ProfileScreen extends GetView<ProfileController> {
                                 width: 200.w,
                                 height: 200.h,
                               )
-                            : Image.file(
-                                File(controller.userImage!.path),
-                          fit: BoxFit.cover,
-                              ),
+                            :
+                        getImageWidget(controller.userImage!.path)
+                        // Image.file(
+                        //         File(controller.userImage!.path),
+                        //   fit: BoxFit.cover,
+                        //       ),
                       ),
                       PositionedDirectional(
                         end: 60.w,
@@ -185,7 +189,9 @@ class ProfileScreen extends GetView<ProfileController> {
                                     text: StringsManager.saveText,
                                     onPressed: () {
                                       if (controller.formKey.currentState!
-                                          .validate()) {}
+                                          .validate()) {
+                                        controller.updateProfile(context);
+                                      }
                                     },
                                   ),
                                 ),
@@ -197,8 +203,9 @@ class ProfileScreen extends GetView<ProfileController> {
                                   backgroundColor: ColorManager.errorColor,
                                   borderColor: ColorManager.errorColor,
                                   onPressed: () {
-                                    Get.offAll(() => SplashScreen(),
-                                        transition: Transition.upToDown);
+                                    Get.put(LoginController()).logout(context);
+
+
                                   },
                                 )),
                               ],
@@ -216,5 +223,20 @@ class ProfileScreen extends GetView<ProfileController> {
         ),
       ],
     );
+  }
+  Widget getImageWidget(String? imagePath) {
+    if (imagePath == null || imagePath.isEmpty) {
+      return Image.asset(
+        AssetsManager.farmerIMG,
+        width: 200.w,
+        height: 200.h,
+      );
+    }
+
+    if (kIsWeb) {
+      return Image.network(imagePath, fit: BoxFit.cover);
+    } else {
+      return Image.file(File(imagePath), fit: BoxFit.cover);
+    }
   }
 }

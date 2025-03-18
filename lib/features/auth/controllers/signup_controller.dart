@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../../core/data/datasource/configuration/locator.dart';
+import '../../../core/data/models/user.dart';
+import '../../../core/dialogs/loading_dialog.dart';
+import '../../../core/domain/error_handler/network_exceptions.dart';
+import '../../../core/helper/response_helper.dart';
+import '../../navbar/controllers/profile_controller.dart';
+import '../domain/repositories/auth_repository.dart';
+import '../screens/account_verification_screen.dart';
+import '../screens/login_screen.dart';
+
 class SignupController extends GetxController{
   final formKey = GlobalKey<FormState>();
   final nameController = TextEditingController();
@@ -8,6 +18,49 @@ class SignupController extends GetxController{
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
+  late AuthRepository _repository;
+  Map<String,dynamic>? result;
+  @override
+  void onInit() {
+    _repository= locator<AuthRepository>();
+    super.onInit();
+  }
+  Future<void> register(BuildContext context,
+      ) async {
+
+    LoadingDialog.show(context);
+
+
+    final response = await _repository.register(userNameController.text,userNameController.text, passwordController.text
+    ,firstName: nameController.text,);
+
+    response.when(
+      success: (data) async {
+        result = data.result;
+        Get.put(ProfileController()).user=UserModel.fromJson(result?['user']);
+
+
+        ResponseHelper.onSuccess(context,message: data.message);
+        await Future.delayed(Duration(seconds: 2));
+        LoadingDialog.hide(context);
+
+        Get.offAll(
+                () => AccountVerificationScreen(),
+            arguments: {"email": Get.put(ProfileController()).user?.email},
+            transition: Transition.topLevel
+        );
+
+
+      },
+      failure: (networkException) {
+
+        LoadingDialog.hide(context);
+
+        ResponseHelper.onFailure(context,message: NetworkExceptions.getErrorMessage(networkException));
+
+      },
+    );
+  }
 
   @override
   void onClose() {

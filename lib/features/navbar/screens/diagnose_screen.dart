@@ -1,5 +1,7 @@
 import 'dart:io';
 
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -65,12 +67,14 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
                                           Icons.photo_outlined,
                                           size: 80.sp,
                                         )
-                                      : Image.file(
-                                          File(
-                                            controller.userImage!.path,
-                                          ),
-                                          fit: BoxFit.cover,
-                                        ),
+                                      :
+                                  getImageWidget(controller.userImage!.path),
+                                  // Image.file(
+                                  //         File(
+                                  //           controller.userImage!.path,
+                                  //         ),
+                                  //         fit: BoxFit.cover,
+                                  //       ),
                                 ),
                                 Visibility(
                                   visible: controller.userImage != null,
@@ -97,7 +101,11 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
                 ),
                 80.w.width,
                 Expanded(
-                  child: Column(
+                  child:
+                GetBuilder<DiagnoseController>(
+                init: DiagnoseController(),
+    builder: (_context) =>
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Row(
@@ -126,7 +134,9 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
                         width: 150.w,
                         child: AppButtonWidget(
                           text: StringsManager.diagnosePlantText,
-                          onPressed: () {},
+                          onPressed: () {
+                            controller.diagnose(context);
+                          },
                         ),
                       ),
                       20.h.height,
@@ -137,6 +147,7 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
                       ),
                       AppTextField(
                         hintText: StringsManager.resultHintText,
+                        controller:TextEditingController(text: controller.result?['disease']),
                         minLine: 1,
                         maxLine: 10,
                         textInputAction: TextInputAction.newline,
@@ -150,12 +161,13 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
                       ),
                       AppTextField(
                         hintText: StringsManager.resultHintText,
+                        controller:TextEditingController(text: controller.result?['plant_name']),
                         minLine: 1,
                         maxLine: 10,
                         textInputAction: TextInputAction.newline,
                         keyboardType: TextInputType.multiline,
                       )
-                    ],
+                    ],)
                   ),
                 ),
               ],
@@ -164,5 +176,19 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
         )
       ],
     );
+  }
+  Widget getImageWidget(String? imagePath) {
+    if (imagePath == null || imagePath.isEmpty) {
+      return Icon(
+        Icons.photo_outlined,
+        size: 80.sp,
+      );
+    }
+
+    if (kIsWeb) {
+      return Image.network(imagePath, fit: BoxFit.cover);
+    } else {
+      return Image.file(File(imagePath), fit: BoxFit.cover);
+    }
   }
 }

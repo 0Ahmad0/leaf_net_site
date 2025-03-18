@@ -114,7 +114,9 @@ class SignupScreen extends GetView<SignupController> {
                                       text: StringsManager.signUpText,
                                       onPressed: () {
                                         if (controller.formKey.currentState!
-                                            .validate()) {}
+                                            .validate()) {
+                                          controller.register(context);
+                                        }
                                       },
                                     ),
                                   ),

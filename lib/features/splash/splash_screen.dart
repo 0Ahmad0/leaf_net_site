@@ -10,6 +10,8 @@ import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/const_manager.dart';
 import 'package:leaf_net_app/features/auth/screens/login_screen.dart';
 
+import 'controller/splash_controller.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -25,12 +27,14 @@ class _SplashScreenState extends State<SplashScreen> {
         transition: Transition.fadeIn
       );
     });
+
   }
 
 
   @override
   void initState() {
-    _goToNextScreen();
+    // _goToNextScreen();
+    Get.put(SplashController()).initSplash(context);
     super.initState();
   }
   @override

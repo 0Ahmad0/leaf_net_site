@@ -72,7 +72,9 @@ class ForgetPasswordScreen extends GetView<ForgetPasswordController> {
                                 40.h.height,
                                 AppButtonWidget(
                                   text: StringsManager.submitText,
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    controller.requestPasswordReset(context);
+                                  },
                                 ),
                                 40.h.height,
                               ],

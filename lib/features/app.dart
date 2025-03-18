@@ -6,11 +6,14 @@ import 'package:leaf_net_app/core/strings_manager.dart';
 import 'package:leaf_net_app/core/theme_manager.dart';
 import 'package:leaf_net_app/features/splash/splash_screen.dart';
 
+import 'navbar/controllers/profile_controller.dart';
+
 class LeafNetApp extends StatelessWidget {
   const LeafNetApp({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Get.put(ProfileController());
     return ScreenUtilInit(
       minTextAdapt: true,
       designSize: Size(
