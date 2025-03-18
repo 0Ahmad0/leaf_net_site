@@ -11,4 +11,8 @@ class AssetsManager{
   static const String identifyPlantIMG = '$_imagePath/identify_plant.png';
   static const String askExpertIMG = '$_imagePath/ask_expert.png';
 
+
+  static const String loadingPlantIMG = '$_lottiePath/loading_plant.json';
+  static const String loadingScanPlantIMG = '$_lottiePath/loading_scan_plant.json';
+
 }

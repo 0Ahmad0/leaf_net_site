@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:leaf_net_app/core/assets_manager.dart';
 
 import '../../../core/data/datasource/configuration/locator.dart';
 import '../../../core/dialogs/loading_dialog.dart';
@@ -17,13 +18,13 @@ class DiagnoseController extends GetxController {
   XFile? image;
 
   late DiagnoseRepository _repository;
-  Map<String,dynamic>? result;
+  Map<String, dynamic>? result;
+
   @override
   void onInit() {
-    _repository= locator<DiagnoseRepository>();
+    _repository = locator<DiagnoseRepository>();
     super.onInit();
   }
-
 
   Future pickPhoto(BuildContext context, {required ImageSource source}) async {
     final result = await picker.pickImage(source: source);
@@ -39,35 +40,33 @@ class DiagnoseController extends GetxController {
       );
     }
   }
+
   Future<void> diagnose(BuildContext context) async {
-    LoadingDialog.show(context);
+    LoadingDialog.show(
+      context,
+      image: AssetsManager.loadingScanPlantIMG,
+    );
 
-
-    final response = await _repository.diagnose( image!);
+    final response = await _repository.diagnose(image!);
     response.when(
       success: (data) async {
         result = await data.result;
         update();
         LoadingDialog.hide(context);
-        ResponseHelper.onSuccess(context,message: data.message);
-
-
-
-
+        ResponseHelper.onSuccess(context, message: data.message);
       },
       failure: (networkException) async {
         LoadingDialog.hide(context);
-        ResponseHelper.onFailure(context,message: NetworkExceptions.getErrorMessage(networkException));
+        ResponseHelper.onFailure(context,
+            message: NetworkExceptions.getErrorMessage(networkException));
       },
     );
   }
 
-
-
   deletePhoto() {
     if (userImage != null) {
       userImage = null;
-      image=null;
+      image = null;
       update();
     }
   }
