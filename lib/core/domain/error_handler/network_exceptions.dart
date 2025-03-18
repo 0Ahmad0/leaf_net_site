@@ -87,12 +87,15 @@ abstract class NetworkExceptions with _$NetworkExceptions implements Exception {
 
     var json=jsonDecode(response?.data)['error']??jsonDecode(response?.data);
 
-    json['message']??=json['error']?.toString();
+    // if(json['messages'] is List?)
+    //   json['message']??=(json['messages'] as List?)?.firstOrNull?["message"];
+    json['message']??=(json['error']??json)?.toString();
     json['detail']??=json['details'];
     json['code']=int.tryParse("${json['code']}");
     json['message']??=(json['messages'] as List?)?.firstOrNull?["message"];
 
    ErrorEntity errorModel = ErrorEntity.fromJson(json);
+
    // print("errorModel.message");
    // print(json);
    // print(json['message']);
