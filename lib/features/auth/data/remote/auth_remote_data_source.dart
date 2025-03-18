@@ -196,7 +196,8 @@ class AuthRemoteDataSource  {
 
     final response = await _apiServices.post(
         AppUrl.requestResetPassword,
-        body:body
+        body:body,
+        hasToken:false,
     );
     /// for test
     // final response={

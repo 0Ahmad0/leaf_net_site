@@ -85,10 +85,12 @@ abstract class NetworkExceptions with _$NetworkExceptions implements Exception {
     //TODO : to be refactored when the backend core changes
 
 
-    var json=jsonDecode(response?.data)['error']??jsonDecode(response?.data);
+    var json=jsonDecode(response?.data);
+    // var json=jsonDecode(response?.data)['error']??jsonDecode(response?.data);
 
     // if(json['messages'] is List?)
     //   json['message']??=(json['messages'] as List?)?.firstOrNull?["message"];
+
     json['message']??=(json['error']??json)?.toString();
     json['detail']??=json['details'];
     json['code']=int.tryParse("${json['code']}");

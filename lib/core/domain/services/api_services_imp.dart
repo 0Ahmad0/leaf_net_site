@@ -238,21 +238,25 @@ class ApiServicesImp implements ApiServices {
     options.headers.forEach((key, value) {
       headers += "| $key: $value";
     });
-    log("┌------------------------------------------------------------------------------");
-    log('''| [DIO] Request: ${options.method} ${options.uri}
+//     log("┌------------------------------------------------------------------------------");
+//     log('''| [DIO] Request: ${options.method} ${options.uri}
+// | ${data}
+// | Headers:\n$headers''');
+    print("┌------------------------------------------------------------------------------");
+    print('''| [DIO] Request: ${options.method} ${options.uri}
 | ${data}
 | Headers:\n$headers''');
     log("├------------------------------------------------------------------------------");
     handler.next(options); //continue
   }, onResponse: (Response response, handler) async {
     // print(response.data);
-    log(response.data.toString());
-    log("└------------------------------------------------------------------------------");
+    print(response.data.toString());
+    print("└------------------------------------------------------------------------------");
     handler.next(response);
     // return response; // continue
   }, onError: (DioException error, handler) async {
-    log("| [DIO] Error: ${error.error}: ${error.response.toString()}");
-    log("└------------------------------------------------------------------------------");
+    print("| [DIO] Error: ${error.error}: ${error.response.toString()}");
+    print("└------------------------------------------------------------------------------");
     handler.next(error); //continue
   });
 }

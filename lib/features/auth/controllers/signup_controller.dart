@@ -31,13 +31,13 @@ class SignupController extends GetxController{
     LoadingDialog.show(context);
 
 
-    final response = await _repository.register(userNameController.text,userNameController.text, passwordController.text
+    final response = await _repository.register(emailController.text,userNameController.text, passwordController.text
     ,firstName: nameController.text,);
 
     response.when(
       success: (data) async {
-        result = data.result;
-        Get.put(ProfileController()).user=UserModel.fromJson(result?['user']);
+        // result = data.result;
+        Get.put(ProfileController()).user=data.result;
 
 
         ResponseHelper.onSuccess(context,message: data.message);
@@ -46,7 +46,7 @@ class SignupController extends GetxController{
 
         Get.offAll(
                 () => AccountVerificationScreen(),
-            arguments: {"email": Get.put(ProfileController()).user?.email},
+            arguments: {"email": emailController.text},
             transition: Transition.topLevel
         );
 
