@@ -1,50 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:lottie/lottie.dart';
 
+import '../assets_manager.dart';
 import '../color_manager.dart';
 
-
 class LoadingDialog {
-  static void show(BuildContext context, {String? message}) {
+  static void show(BuildContext context,
+      {String? message, String image = AssetsManager.loadingPlantIMG}) {
     showDialog(
       context: context,
-      barrierDismissible: false, // Prevents dialog from being dismissed by tapping outside
+      barrierDismissible: false,
+      // Prevents dialog from being dismissed by tapping outside
       builder: (BuildContext context) {
         return PopScope(
             // canPop:false, // Prevents back navigation
-          child:
-          // Center(
-          //   child: Lottie.asset(AssetsManager.loading6Json,
-          //       width: 200.w,
-          //       height: 200.h
-          //   ),
-          // )
-          Center(
-            child: Container(
-                alignment: Alignment.center,
-                width: MediaQuery.of(context).size.width * 0.2,
-                height: MediaQuery.of(context).size.width * 0.2,
-                decoration: BoxDecoration(
-                    color: ColorManager.whiteColor,
-                    borderRadius: BorderRadius.circular(8)),
-                child: CircularProgressIndicator(
-                  color: ColorManager.primaryColor,
-                )),
-          )
-
-
-          // AlertDialog(
-          //   content:
-          //   Row(
-          //     children: [
-          //       CircularProgressIndicator(),
-          //       SizedBox(width: 20),
-          //       Expanded(
-          //         child: Text(message ?? 'Loading...'),
-          //       ),
-          //     ],
-          //   ),
-          // ),
-        );
+            child: Center(
+          child: Lottie.asset(
+            image,
+            width: 450.w,
+            height: 450.h,
+          ),
+        ));
       },
     );
   }

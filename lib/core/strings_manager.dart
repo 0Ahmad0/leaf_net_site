@@ -2,6 +2,7 @@ class StringsManager {
   static const String appName = "LeafNet";
 
   static const String profileText = "Profile";
+  static const String goToLoginText = "Go to login";
   static const String diagnoseText = "Diagnose";
   static const String identifyText = "Identify";
   static const String homeText = "Home";

@@ -52,51 +52,54 @@ class ResetPasswordScreen extends GetView<ResetPasswordController> {
                       StringsManager.enterNewPasswordText,
                       style: TextStyle(color: ColorManager.primaryColor),
                     ),
-                    20.h.height,
+                    80.h.height,
                     Form(
                       key: controller.formKey,
-                      child: Column(
-                        children: [
+                      child: SizedBox(
+                        width: 500.w,
+                        child: Column(
+                          children: [
 
 
 
-                          AppTextField(
-                            controller: controller.newPasswordController,
-                            suffixIcon: true,
-                            obscureText: true,
-                            iconData: Icons.lock_open,
-                            hintText: StringsManager.passwordText,
-                            validator: (value) {
-                              return FieldValidator([
-                                PasswordValidator(),
-                              ]).validate(value ?? '');
-                            },
-                          ),
-                          20.h.height,
-                          AppTextField(
-                            controller:
-                            controller.confirmPasswordController,
-                            suffixIcon: true,
-                            obscureText: true,
-                            iconData: Icons.lock_open,
-                            hintText: StringsManager.passwordText,
-                            validator: (value) {
-                              return FieldValidator([
-                                ConfirmPasswordValidator(
-                                    password:
-                                    controller.newPasswordController.text),
-                              ]).validate(value ?? '');
-                            },
-                          ),
-                          40.h.height,
-                          AppButtonWidget(
-                            text: StringsManager.submitText,
-                            onPressed: () {
-                              controller.resetPassword(context);
-                            },
-                          ),
-                          40.h.height,
-                        ],
+                            AppTextField(
+                              controller: controller.newPasswordController,
+                              suffixIcon: true,
+                              obscureText: true,
+                              iconData: Icons.lock_open,
+                              hintText: StringsManager.passwordText,
+                              validator: (value) {
+                                return FieldValidator([
+                                  PasswordValidator(),
+                                ]).validate(value ?? '');
+                              },
+                            ),
+                            40.h.height,
+                            AppTextField(
+                              controller:
+                              controller.confirmPasswordController,
+                              suffixIcon: true,
+                              obscureText: true,
+                              iconData: Icons.lock_open,
+                              hintText: StringsManager.passwordText,
+                              validator: (value) {
+                                return FieldValidator([
+                                  ConfirmPasswordValidator(
+                                      password:
+                                      controller.newPasswordController.text),
+                                ]).validate(value ?? '');
+                              },
+                            ),
+                            40.h.height,
+                            AppButtonWidget(
+                              text: StringsManager.submitText,
+                              onPressed: () {
+                                controller.resetPassword(context);
+                              },
+                            ),
+                            40.h.height,
+                          ],
+                        ),
                       ),
                     ),
                   ],

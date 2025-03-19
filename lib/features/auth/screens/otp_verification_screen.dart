@@ -6,6 +6,7 @@ import 'package:leaf_net_app/core/color_manager.dart';
 import 'package:leaf_net_app/core/extension/space_ext.dart';
 import 'package:leaf_net_app/core/strings_manager.dart';
 import 'package:leaf_net_app/features/auth/controllers/otp_controller.dart';
+import 'package:leaf_net_app/features/auth/screens/login_screen.dart';
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 
@@ -40,7 +41,8 @@ class OtpVerificationScreen extends GetView<OtpController> {
                     Text(
                       StringsManager.otpVerificationText,
                       style: TextStyle(
-                        fontWeight: FontWeight.w900, fontSize: 50.sp,
+                        fontWeight: FontWeight.w900,
+                        fontSize: 50.sp,
                         color: ColorManager.primaryColor,
                       ),
                     ),
@@ -49,22 +51,43 @@ class OtpVerificationScreen extends GetView<OtpController> {
                       StringsManager.enterOtpText,
                       style: TextStyle(color: ColorManager.primaryColor),
                     ),
-                    20.h.height,
+                    80.h.height,
                     Form(
                       key: controller.formKey,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(6, (index) {
                           return Container(
-                            width: 50.w,
+                            alignment: Alignment.center,
+                            width: 50.sp,
+                            height: 50.sp,
                             margin: EdgeInsets.symmetric(horizontal: 5.w),
                             child: TextFormField(
+                              autofocus: true,
                               controller: controller.otpControllers[index],
                               keyboardType: TextInputType.number,
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 20.sp, fontWeight: FontWeight.bold),
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                        color: ColorManager.grayColor)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                      color: ColorManager.grayColor,
+                                    )),
+                                focusedErrorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                        color: ColorManager.errorColor)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                        color: ColorManager.primaryColor,
+                                        width: 2.sp)),
                               ),
                               onChanged: (value) {
                                 if (value.length == 1 && index < 5) {
@@ -76,14 +99,26 @@ class OtpVerificationScreen extends GetView<OtpController> {
                         }),
                       ),
                     ),
-                    40.h.height,
-                    AppButtonWidget(
-                      text: StringsManager.verifyOtpText,
-                      onPressed: () {
-                        controller.verifyOtp(context);
-                      },
+                    80.h.height,
+                    SizedBox(
+                      width: 350.w,
+                      child: AppButtonWidget(
+                        text: StringsManager.verifyOtpText,
+                        onPressed: () {
+                          controller.verifyOtp(context);
+                        },
+                      ),
                     ),
                     40.h.height,
+                    TextButton(
+                        onPressed: ()=> Get.offAll(LoginScreen(),transition: Transition.rightToLeftWithFade),
+                        child: Text(
+                          StringsManager.goToLoginText,
+                          style: TextStyle(
+                            color: ColorManager.errorColor,
+                            fontSize: 16.sp
+                          ),
+                        ))
                   ],
                 ),
               ],
