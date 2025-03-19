@@ -35,12 +35,25 @@ class SignupScreen extends GetView<SignupController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(StringsManager.nameText),
+                              Text("First Name"),
                               10.h.height,
                               AppTextField(
-                                controller: controller.nameController,
+                                controller: controller.firstNameController,
                                 iconData: Icons.person_outline_sharp,
-                                hintText: StringsManager.nameText,
+                                hintText: "Enter First Name",
+                                validator: (value) {
+                                  return FieldValidator([
+                                    UsernameValidator(),
+                                  ]).validate(value ?? '');
+                                },
+                              ),
+                              40.h.height,
+                              Text("Last Name"),
+                              10.h.height,
+                              AppTextField(
+                                controller: controller.lastNameController,
+                                iconData: Icons.person_outline_sharp,
+                                hintText: "Enter Last Name",
                                 validator: (value) {
                                   return FieldValidator([
                                     UsernameValidator(),
@@ -92,8 +105,7 @@ class SignupScreen extends GetView<SignupController> {
                               Text('Confirm Password :'),
                               10.h.height,
                               AppTextField(
-                                controller:
-                                    controller.confirmPasswordController,
+                                controller: controller.confirmPasswordController,
                                 suffixIcon: true,
                                 obscureText: true,
                                 iconData: Icons.lock_open,
@@ -101,8 +113,8 @@ class SignupScreen extends GetView<SignupController> {
                                 validator: (value) {
                                   return FieldValidator([
                                     ConfirmPasswordValidator(
-                                        password:
-                                            controller.passwordController.text),
+                                      password: controller.passwordController.text,
+                                    ),
                                   ]).validate(value ?? '');
                                 },
                               ),
@@ -113,8 +125,7 @@ class SignupScreen extends GetView<SignupController> {
                                     child: AppButtonWidget(
                                       text: StringsManager.signUpText,
                                       onPressed: () {
-                                        if (controller.formKey.currentState!
-                                            .validate()) {
+                                        if (controller.formKey.currentState!.validate()) {
                                           controller.register(context);
                                         }
                                       },
@@ -128,16 +139,14 @@ class SignupScreen extends GetView<SignupController> {
                                 child: Text.rich(
                                   TextSpan(children: [
                                     TextSpan(
-                                      text:
-                                          StringsManager.alreadyHaveAccountText,
+                                      text: StringsManager.alreadyHaveAccountText,
                                     ),
                                     TextSpan(
                                         text: StringsManager.loginText,
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
                                             Get.off(() => LoginScreen(),
-                                                transition:
-                                                    Transition.downToUp);
+                                                transition: Transition.downToUp);
                                           },
                                         style: TextStyle(
                                           color: ColorManager.primaryColor,
@@ -153,23 +162,25 @@ class SignupScreen extends GetView<SignupController> {
                       ),
                     ),
                     Expanded(
-                        child: Column(
-                      children: [
-                        Image.asset(
-                          AssetsManager.logoIMG,
-                          width: 200,
-                          height: 200,
-                        ),
-                        20.h.height,
-                        Text(
-                          StringsManager.signUpText,
-                          style: TextStyle(
+                      child: Column(
+                        children: [
+                          Image.asset(
+                            AssetsManager.logoIMG,
+                            width: 200,
+                            height: 200,
+                          ),
+                          20.h.height,
+                          Text(
+                            StringsManager.signUpText,
+                            style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 50.sp,
-                              color: ColorManager.primaryColor),
-                        ),
-                      ],
-                    ))
+                              color: ColorManager.primaryColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ],
