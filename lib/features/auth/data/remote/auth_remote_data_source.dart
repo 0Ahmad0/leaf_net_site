@@ -100,9 +100,10 @@ class AuthRemoteDataSource  {
     // };
 
     response['message']??='successful';
+
     return BaseModel.fromJson(
       response,
-          (json) => UserModel.fromJson(json['user']),
+          (json) => UserModel.fromJson(json),
     );
   }
 

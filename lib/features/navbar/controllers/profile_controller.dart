@@ -96,11 +96,14 @@ class ProfileController extends GetxController {
         bool isSplash=true
       }
       ) async {
+
     final response = await _repository.getProfile();
 
     bool isGetProfile=false;
     await response.when(
       success: (data) async {
+
+
         user = data.result;
         updateUser(user!);
 
