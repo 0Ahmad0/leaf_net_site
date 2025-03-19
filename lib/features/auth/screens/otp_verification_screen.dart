@@ -115,8 +115,8 @@ class OtpVerificationScreen extends GetView<OtpController> {
                         child: Text(
                           StringsManager.goToLoginText,
                           style: TextStyle(
-                            color: ColorManager.errorColor,
-                            fontSize: 16.sp
+                              color: ColorManager.errorColor,
+                              fontSize: 16.sp
                           ),
                         ))
                   ],

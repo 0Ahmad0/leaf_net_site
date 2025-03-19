@@ -11,6 +11,7 @@ import '../../../core/const_manager.dart';
 import '../../../core/strings_manager.dart';
 import '../../widgets/app_padding_widget.dart';
 import '../../widgets/app_textfield_widget.dart';
+import '../controllers/profile_controller.dart';
 
 class NavbarScreen extends GetView<NavbarController> {
   const NavbarScreen({super.key});
@@ -78,11 +79,16 @@ class NavbarScreen extends GetView<NavbarController> {
             child: GetBuilder<NavbarController>(
                 init: NavbarController(),
                 builder: (context) {
-                  return HeaderAppWidget(
-                    name: 'Sarah',
-                    title:
-                        ConstManager.appBarPages[controller.currentIndex].name +
-                            ' Page',
+                  return    GetBuilder<ProfileController>(
+                      init: Get.put(ProfileController()),
+                      builder: (profileController) {
+                      return HeaderAppWidget(
+                        name: profileController.user?.completeName??''??'Sarah',
+                        title:
+                            ConstManager.appBarPages[controller.currentIndex].name +
+                                ' Page',
+                      );
+                    }
                   );
                 }),
           ),

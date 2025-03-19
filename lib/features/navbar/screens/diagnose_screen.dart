@@ -14,6 +14,7 @@ import '../../../core/color_manager.dart';
 import '../../widgets/app_button_widget.dart';
 import '../../widgets/app_padding_widget.dart';
 import '../../widgets/app_textfield_widget.dart';
+import '../controllers/profile_controller.dart';
 import '../widgets/header_app_widget.dart';
 import '../widgets/under_header_widget.dart';
 
@@ -25,11 +26,16 @@ class DiagnoseScreen extends GetView<DiagnoseController> {
     Get.lazyPut(() => DiagnoseController());
     return Column(
       children: [
-        HeaderAppWidget(
-          name: 'Sarah',
-          title:
-          StringsManager.diagnoseText+
-              ' Page',
+        GetBuilder<ProfileController>(
+            init: Get.put(ProfileController()),
+            builder: (profileController) {
+            return HeaderAppWidget(
+              name:profileController.user?.completeName??""?? 'Sarah',
+              title:
+              StringsManager.diagnoseText+
+                  ' Page',
+            );
+          }
         ),
         40.h.height,
         UnderHeaderWidget(

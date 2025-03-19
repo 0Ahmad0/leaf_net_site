@@ -8,6 +8,7 @@ import 'package:leaf_net_app/features/widgets/app_textfield_widget.dart';
 
 import '../../../core/color_manager.dart';
 import '../../../core/strings_manager.dart';
+import '../../navbar/controllers/profile_controller.dart';
 import '../../widgets/app_padding_widget.dart';
 
 class AskExpertScreen extends GetView<AskExpertController> {
@@ -19,9 +20,14 @@ class AskExpertScreen extends GetView<AskExpertController> {
     return Scaffold(
       body: Column(
         children: [
-          HeaderAppWidget(
-            name: 'name',
-            title: StringsManager.askExpertText,
+          GetBuilder<ProfileController>(
+              init: Get.put(ProfileController()),
+              builder: (profileController) {
+              return HeaderAppWidget(
+                name: profileController.user?.completeName??'name',
+                title: StringsManager.askExpertText,
+              );
+            }
           ),
           Expanded(
               child: GetBuilder<AskExpertController>(
