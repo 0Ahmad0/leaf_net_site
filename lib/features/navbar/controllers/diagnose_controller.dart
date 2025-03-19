@@ -42,6 +42,14 @@ class DiagnoseController extends GetxController {
   }
 
   Future<void> diagnose(BuildContext context) async {
+    if(image==null){
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(StringsManager.pleaseSelectPhotoText),
+        ),
+      );
+      return;
+    }
     LoadingDialog.show(
       context,
       image: AssetsManager.loadingScanPlantIMG,
