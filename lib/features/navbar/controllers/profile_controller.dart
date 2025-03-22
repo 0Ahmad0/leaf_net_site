@@ -62,7 +62,7 @@ class ProfileController extends GetxController {
   @override
   void onInit() {
     _repository=locator<AuthRepository>();
-    nameController.text=user?.firstName??'';
+    nameController.text=user?.completeName??'';
     emailController.text=user?.email??'';
     userNameController.text=user?.userName??'';
     super.onInit();

@@ -35,12 +35,12 @@ class SignupScreen extends GetView<SignupController> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("First Name"),
+                              Text(StringsManager.firstNameText),
                               10.h.height,
                               AppTextField(
                                 controller: controller.firstNameController,
                                 iconData: Icons.person_outline_sharp,
-                                hintText: "Enter First Name",
+                                hintText: StringsManager.enterFirstNameText,
                                 validator: (value) {
                                   return FieldValidator([
                                     UsernameValidator(),
@@ -48,12 +48,12 @@ class SignupScreen extends GetView<SignupController> {
                                 },
                               ),
                               40.h.height,
-                              Text("Last Name"),
+                              Text(StringsManager.lastNameText),
                               10.h.height,
                               AppTextField(
                                 controller: controller.lastNameController,
                                 iconData: Icons.person_outline_sharp,
-                                hintText: "Enter Last Name",
+                                hintText: StringsManager.enterLastNameText,
                                 validator: (value) {
                                   return FieldValidator([
                                     UsernameValidator(),
@@ -87,7 +87,7 @@ class SignupScreen extends GetView<SignupController> {
                                 hintText: StringsManager.emailText,
                               ),
                               40.h.height,
-                              Text('Password :'),
+                              Text(StringsManager.passwordText),
                               10.h.height,
                               AppTextField(
                                 controller: controller.passwordController,
@@ -102,7 +102,7 @@ class SignupScreen extends GetView<SignupController> {
                                 },
                               ),
                               40.h.height,
-                              Text('Confirm Password :'),
+                              Text(StringsManager.confirmPasswordText),
                               10.h.height,
                               AppTextField(
                                 controller: controller.confirmPasswordController,

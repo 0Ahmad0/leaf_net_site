@@ -141,7 +141,7 @@ class ProfileScreen extends GetView<ProfileController> {
                               validator: (value) {
                                 return FieldValidator([
                                   RequiredValidator(),
-                                  UsernameValidator(),
+                                  // UsernameValidator(),
                                 ]).validate(value ?? '');
                               },
                             ),

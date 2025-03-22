@@ -65,6 +65,13 @@ Snap a picture of your plant and let LeafNet diagnose its health! See what your 
 
   static const String enterNewPasswordText = "Enter your new password";
   static const String newPasswordText = "New Password";
-  static const String confirmPasswordText = "Confirm Password";
+  static const String confirmPasswordText = "Confirm Password :";
+  static const String verifyAccountText = "Verify Account";
+  static const String enterSixDigitFromEmailText = "Enter the 6-digit code sent to your email";
+  static const String accountVerificationText = "Account Verification";
+  static const String firstNameText = "First Name :";
+  static const String enterFirstNameText = "Enter First Name : ";
+  static const String lastNameText = "Last Name :";
+  static const String enterLastNameText = "Enter Last Name : ";
 
 }

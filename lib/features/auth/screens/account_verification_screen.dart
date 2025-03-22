@@ -9,6 +9,8 @@ import 'package:leaf_net_app/features/auth/controllers/account_verification_cont
 import 'package:leaf_net_app/features/auth/widgets/app_bar_widget.dart';
 import 'package:leaf_net_app/features/widgets/app_button_widget.dart';
 
+import 'login_screen.dart';
+
 class AccountVerificationScreen extends GetView<AccountVerificationController> {
   @override
   Widget build(BuildContext context) {
@@ -38,7 +40,7 @@ class AccountVerificationScreen extends GetView<AccountVerificationController> {
                     ),
                     20.h.height,
                     Text(
-                      "Account Verification",
+                      StringsManager.accountVerificationText,
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 50.sp,
@@ -47,25 +49,46 @@ class AccountVerificationScreen extends GetView<AccountVerificationController> {
                     ),
                     10.h.height,
                     Text(
-                      "Enter the 6-digit code sent to your email",
+                      StringsManager.enterSixDigitFromEmailText,
                       style: TextStyle(color: ColorManager.primaryColor),
                     ),
-                    20.h.height,
+                    80.h.height,
                     Form(
                       key: controller.formKey,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(6, (index) {
                           return Container(
-                            width: 50.w,
+                            alignment: Alignment.center,
+                            width: 50.sp,
+                            height: 50.sp,
                             margin: EdgeInsets.symmetric(horizontal: 5.w),
                             child: TextFormField(
+                              autofocus: true,
                               controller: controller.otpControllers[index],
                               keyboardType: TextInputType.number,
                               textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                              style: TextStyle(
+                                  fontSize: 20.sp, fontWeight: FontWeight.bold),
                               decoration: InputDecoration(
-                                border: OutlineInputBorder(),
+                                border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                        color: ColorManager.grayColor)),
+                                enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                      color: ColorManager.grayColor,
+                                    )),
+                                focusedErrorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                        color: ColorManager.errorColor)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    borderSide: BorderSide(
+                                        color: ColorManager.primaryColor,
+                                        width: 2.sp)),
                               ),
                               onChanged: (value) {
                                 if (value.length == 1 && index < 5) {
@@ -77,14 +100,24 @@ class AccountVerificationScreen extends GetView<AccountVerificationController> {
                         }),
                       ),
                     ),
+                    80.h.height,
+                    SizedBox(
+                        width: 350.w,
+                        child: AppButtonWidget(
+                          text: StringsManager.verifyAccountText,
+                          onPressed: () {
+                            controller.verifyEmail(context);
+                          },
+                        )),
                     40.h.height,
-                    AppButtonWidget(
-                      text: "Verify Account",
-                      onPressed: () {
-                        controller.verifyEmail(context);
-                      },
-                    ),
-                    40.h.height,
+                    TextButton(
+                        onPressed: () => Get.offAll(LoginScreen(),
+                            transition: Transition.rightToLeftWithFade),
+                        child: Text(
+                          StringsManager.goToLoginText,
+                          style: TextStyle(
+                              color: ColorManager.errorColor, fontSize: 16.sp),
+                        ))
                   ],
                 ),
               ],
