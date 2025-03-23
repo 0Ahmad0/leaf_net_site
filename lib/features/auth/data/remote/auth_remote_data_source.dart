@@ -112,7 +112,7 @@ class AuthRemoteDataSource  {
 
     if(userImage!=null)
       formData.files.add(
-        MapEntry("image", await MultipartFile.fromBytes((await userImage.readAsBytes()).toList()),
+        MapEntry("profile_image", await MultipartFile.fromBytes((await userImage.readAsBytes()).toList()),
         // MapEntry("image", await MultipartFile.fromFile(userImage.patj??'',contentType:DioMediaType.parse('image/${path?.split('.').lastOrNull}'))),
       ));
 

@@ -17,12 +17,15 @@ class UserModel with _$UserModel {
     @JsonKey(name: 'last_name') String? lastName,
     @JsonKey(name: 'username') String? userName,
     @JsonKey(name: 'email') String? email,
-    @JsonKey(name: 'image') String? image,
+    @JsonKey(name: 'profile_image') String? image,
 
 
   }) = _UserModel;
 
-  factory UserModel.fromJson( json) => _$UserModelFromJson(json);
+  factory UserModel.fromJson( json) {
+    json['profile_image']??=json['profile']?['image'];
+    return _$UserModelFromJson(json);
+  }
 
   String get completeName => "${firstName ?? ''} ${lastName ?? ''}".trim();
 }
