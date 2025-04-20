@@ -1,6 +1,7 @@
 
 // const baseServ = "http://192.168.1.114/";
-const baseServ = "http://127.0.0.1:8000/";
+const baseServ = "http://159.223.22.98/";
+// const baseServ = "http://127.0.0.1:8000/";
 const baseUrl = "${baseServ}api/";
 const storageUrl = "http://localhost:8000";
 const  auth = "auth/";
