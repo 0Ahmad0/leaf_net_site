@@ -43,7 +43,7 @@ Snap a picture of your plant and let LeafNet diagnose its health! See what your 
  """;
   static const String resultHintText = 'result will appear here ....';
   static const String resultText = 'Result:';
-  static const String diagnoseNameText = 'Diagnose Name:';
+  static const String diagnoseNameText = 'Plant Name:';
   static const String selectImageText = 'Select an image or use the camera to identify the plant';
   static const String uploadImageText = 'Upload Image';
   static const String chooseImageText = 'Choose Image';
